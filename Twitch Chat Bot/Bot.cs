@@ -13,8 +13,8 @@ namespace Twitch_Chat_Bot
 
         string ip = "irc.chat.twitch.tv";
         int port = 6667;
-        string password = "oauth:zpfm71tn46asjbxok7x6i4k2wnawls"; // your twitch bot account oauth code
-        string botUsername = "black0wl_bot";
+        string password = "oauth:"; // your twitch bot account oauth code
+        string botUsername = ""; // your bot username
 
 
         public async Task ConnectBot()
@@ -29,7 +29,7 @@ namespace Twitch_Chat_Bot
 
             await streamWriter.WriteLineAsync($"PASS {password}");
             await streamWriter.WriteLineAsync($"NICK {botUsername}");
-            await streamWriter.WriteLineAsync($"JOIN #theblack0wl");
+            await streamWriter.WriteLineAsync($"JOIN #yourchannelnamehere");
             //  await streamWriter.WriteLineAsync($"PRIVMSG #theblack0wl :Hey I just started my IRC bot");
 
             while (true)
@@ -64,7 +64,7 @@ namespace Twitch_Chat_Bot
 
         private static async Task SendMessageAsync(StreamWriter writer,string message)
         {
-            await writer.WriteLineAsync($"PRIVMSG #theblack0wl :{message}");
+            await writer.WriteLineAsync($"PRIVMSG #yourchannelnamehere :{message}");
         }
 
     }
